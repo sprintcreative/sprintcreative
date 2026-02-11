@@ -1,34 +1,310 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sprint Creative</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 80px auto;
-      line-height: 1.6;
-      padding: 0 20px;
+    :root{
+      --bg: #f4f1ea;          /* warm off-white */
+      --ink: #11110f;         /* near-black */
+      --muted: #6b6b66;
+      --accent: #b8ff7a;      /* neon-ish green band */
+      --border: rgba(0,0,0,.12);
+      --max: 1120px;
+      --radius: 18px;
     }
-    h1 { font-size: 32px; }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    /* Top utility strip (optional) */
+    .topbar{
+      height: 56px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 0 22px;
+      border-bottom: 1px solid var(--border);
+      background: #ffffff;
+    }
+    .topbar .brand{
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .topbar .right{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .pill{
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      text-decoration:none;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    /* Main nav */
+    .navwrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 22px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+    }
+    .logo{
+      font-weight: 800;
+      letter-spacing: .06em;
+      font-size: 18px;
+    }
+    nav{
+      display:flex;
+      gap: 26px;
+      align-items:center;
+      font-size: 14px;
+    }
+    nav a{
+      text-decoration:none;
+      color: var(--ink);
+      opacity: .85;
+    }
+    nav a:hover{ opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
+
+    .login{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: var(--ink);
+      opacity: .85;
+      text-decoration:none;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    /* Hero */
+    .hero{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 34px 22px 0;
+      position: relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    h1{
+      margin: 0;
+      font-size: clamp(52px, 6.2vw, 96px);
+      line-height: .92;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+
+    .subcopy{
+      margin-top: 18px;
+      max-width: 44ch;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    /* Floating round CTA like your screenshot */
+    .cta-circle{
+      justify-self: end;
+      margin-top: 18px;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    }
+    .cta-circle:hover{ transform: translateY(-1px); }
+
+    /* Ticker band */
+    .ticker{
+      margin-top: 26px;
+      background: var(--accent);
+      border-top: 1px solid rgba(0,0,0,.25);
+      border-bottom: 1px solid rgba(0,0,0,.25);
+      overflow:hidden;
+      white-space: nowrap;
+    }
+    .ticker-track{
+      display:inline-block;
+      padding: 12px 0;
+      animation: scroll 18s linear infinite;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    .ticker span{
+      margin: 0 18px;
+    }
+    @keyframes scroll{
+      from{ transform: translateX(0); }
+      to{ transform: translateX(-50%); }
+    }
+
+    /* Image section */
+    .hero-image{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 22px 36px;
+    }
+    .image-frame{
+      margin-top: 0;
+      border-top: 0;
+      height: min(520px, 62vh);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background: #e7e7e2;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .image-frame img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      filter: saturate(1.02);
+    }
+    .image-overlay{
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    /* Sections */
+    section{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 22px;
+    }
+    .section-title{
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+    .section-text{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .cta-circle{ justify-self: start; }
+      nav{ gap: 18px; }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Sprint Creative</h1>
-  <p>Brand Strategy & Creative Consulting</p>
-  <p>
-    Sprint Creative provides brand strategy, content development,
-    and marketing advisory services for growing businesses.
-  </p>
-  <p>
-    Services include brand positioning, messaging development,
-    creative direction, and launch advisory.
-  </p>
-  <p>
-    Contact: info@sprintcreative.co<br>
-    Santa Clarita, CA
-  </p>
+
+  <header class="topbar">
+    <div class="brand">Sprint Creative</div>
+    <div class="right">
+      <span aria-hidden="true">🖥️</span>
+      <span aria-hidden="true">📱</span>
+      <a class="pill" href="#contact">Edit this site</a>
+    </div>
+  </header>
+
+  <div class="navwrap">
+    <div class="logo">SPRINT CREATIVE®</div>
+    <nav aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#works">Works</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="login" href="#contact" aria-label="Log in">
+      <span aria-hidden="true">👤</span> Log In
+    </a>
+  </div>
+
+  <main id="home" class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>We specialize in<br>Strategy, Design &<br>Marketing</h1>
+        <p class="subcopy">
+          Sprint Creative supports growing businesses with positioning, messaging, and creative direction.
+          Project-based engagements, flexible scheduling, and regional travel as needed.
+        </p>
+      </div>
+
+      <a class="cta-circle" href="#contact">Contact Us</a>
+    </div>
+
+    <div class="ticker" role="presentation">
+      <div class="ticker-track">
+        <span>Branding</span> / <span>Creative</span> / <span>Content Strategy</span> / <span>Marketing</span> /
+        <span>Branding</span> / <span>Creative</span> / <span>Content Strategy</span> / <span>Marketing</span> /
+        <span>Branding</span> / <span>Creative</span> / <span>Content Strategy</span> / <span>Marketing</span> /
+        <span>Branding</span> / <span>Creative</span> / <span>Content Strategy</span> / <span>Marketing</span>
+      </div>
+    </div>
+  </main>
+
+  <div class="hero-image">
+    <div class="image-frame">
+      <!-- Replace this with your image file name after you upload it into the repo -->
+      <img src="business-image.jpg" alt="Sprint Creative workspace or brand image">
+      <div class="image-overlay"></div>
+    </div>
+  </div>
+
+  <section id="works">
+    <h3 class="section-title">Works</h3>
+    <p class="section-text">
+      (Optional) Add 2–3 short bullets here later. For now, leaving it light is totally fine for a “proof of presence” site.
+    </p>
+  </section>
+
+  <section id="about">
+    <h3 class="section-title">About</h3>
+    <p class="section-text">
+      Sprint Creative provides brand strategy and creative consulting for small and mid-sized businesses.
+      Based in Los Angeles, CA, but available for client-site meetings.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h3 class="section-title">Contact</h3>
+    <p class="section-text">
+      Email: <a href="mailto:hello@sprintcreative.co">hello@sprintcreative.co</a>
+      <br>Location: Los Angeles, CA
+    </p>
+  </section>
+
 </body>
 </html>
