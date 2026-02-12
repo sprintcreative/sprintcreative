@@ -102,7 +102,7 @@
       font-family: Fraunces, serif;
       font-weight: 600;
       color: var(--teal);
-      opacity: .16;                 /* darker than before */
+      opacity: .20;                 /* slightly stronger than before */
       font-size: clamp(260px, 46vw, 620px);
       line-height: 1;
       transform: translateY(10px);
@@ -284,61 +284,23 @@
       border-bottom-color: rgba(255,255,255,.95);
     }
 
-    /* Form styling (visual + stable) */
-    form{
-      margin: 0;
-    }
-    .form{
+    /* NEW: Contact CTA button (replaces form cleanly without breaking layout) */
+    .contact-cta{
       border-top: 1px solid rgba(255,255,255,.25);
       padding-top: 18px;
     }
-    .row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 18px;
+    .email-button{
+      display:inline-block;
+      padding:14px 24px;
+      border:1px solid rgba(255,255,255,.65);
+      color:#ffffff;
+      text-decoration:none;
+      border-radius:999px;
+      font-weight:600;
+      letter-spacing:.02em;
+      transition: all .2s ease;
     }
-    label{
-      display:block;
-      font-size: 12px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.88);
-      margin-bottom: 8px;
-    }
-    input, textarea{
-      width: 100%;
-      border: none;
-      border-bottom: 1px solid rgba(255,255,255,.60);
-      background: transparent;
-      color: #fff;
-      padding: 10px 4px;
-      outline: none;
-      font-size: 14px;
-      font-family: Inter, sans-serif;
-    }
-    textarea{
-      min-height: 96px;
-      resize: vertical;
-    }
-    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.70); }
-
-    .submit{
-      margin-top: 18px;
-      display:flex;
-      justify-content:flex-end;
-    }
-    .submit button{
-      border: 1px solid rgba(255,255,255,.62);
-      background: transparent;
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: 600;
-      letter-spacing: .02em;
-    }
-    .submit button:hover{
+    .email-button:hover{
       background: rgba(255,255,255,.12);
     }
 
@@ -352,7 +314,6 @@
 
     @media (max-width: 980px){
       .contact-grid{ grid-template-columns: 1fr; gap: 26px; }
-      .row{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -395,7 +356,6 @@
         <h2 class="what-head">What We<br>Do</h2>
 
         <div class="what-image">
-          <!-- Upload your image to the repo and name it whatwedo.jpg (or change this filename) -->
           <img src="whatwedo.png" alt="Sprint Creative business image">
         </div>
 
@@ -440,32 +400,15 @@
         </div>
       </div>
 
-      <form class="form" onsubmit="return false;" aria-label="Contact form (visual placeholder)">
-        <div class="row">
-          <div>
-            <label>First name *</label>
-            <input type="text" aria-label="First name">
-          </div>
-          <div>
-            <label>Last name *</label>
-            <input type="text" aria-label="Last name">
-          </div>
-        </div>
-
-        <div style="margin-bottom:18px;">
-          <label>Email *</label>
-          <input type="email" aria-label="Email">
-        </div>
-
-        <div>
-          <label>Message</label>
-          <textarea aria-label="Message" placeholder="Type your message here..."></textarea>
-        </div>
-
-        <div class="submit">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      <!-- Email button column -->
+      <div class="contact-cta">
+        <a
+          class="email-button"
+          href="mailto:hello@sprintcreative.co?subject=Sprint%20Creative%20Inquiry&body=Hi%20Sprint%20Creative,%0D%0A%0D%0AI%27d%20love%20to%20connect%20about..."
+        >
+          Email Us
+        </a>
+      </div>
     </div>
 
     <div class="copyright">© 2025 by Sprint Creative.</div>
