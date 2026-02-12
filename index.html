@@ -6,23 +6,20 @@
   <title>Sprint Creative</title>
   <meta name="description" content="Sprint Creative — Brand strategy, content development, and marketing advisory services." />
 
+  <!-- Fonts: elegant serif + clean sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Elegant serif for the big statements + clean sans for body -->
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg: #ffffff;
       --ink: #222423;          /* dark charcoal */
-      --muted: #5f6663;
+      --muted: #4f5653;
       --teal: #1a9b8a;         /* teal accent */
-      --teal-deep: #0f6f63;    /* darker teal */
-      --line: rgba(0,0,0,.12);
-
-      --max: 1060px;
-      --radius: 18px;
+      --teal-deep: #0f6f63;
+      --line: rgba(0,0,0,.10);
+      --max: 1080px;
     }
 
     *{ box-sizing: border-box; }
@@ -34,12 +31,12 @@
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
-    /* Top nav (simple, like the reference) */
+    /* Top nav */
     header{
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,.85);
+      z-index: 50;
+      background: rgba(255,255,255,.90);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(0,0,0,.06);
     }
@@ -53,42 +50,47 @@
       gap: 12px;
     }
     .brand{
+      font-size: 13px;
       font-weight: 600;
       color: var(--teal);
       letter-spacing: .02em;
-      font-size: 14px;
       white-space: nowrap;
     }
     .links{
       display:flex;
       gap: 22px;
-      font-size: 12px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
       align-items:center;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
       white-space: nowrap;
     }
     .links a{
-      text-decoration: none;
       color: var(--teal);
+      text-decoration:none;
       opacity: .85;
     }
     .links a:hover{ opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
 
-    /* Hero */
+    @media (max-width: 860px){
+      .links{ display:none; }
+    }
+
+    /* Layout wrapper */
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
       padding: 0 22px;
     }
 
+    /* HERO */
     .hero{
       position: relative;
-      padding: 70px 0 40px;
+      padding: 72px 0 40px;
       overflow: hidden;
     }
 
-    /* Watermark ampersand behind hero, like the Wix design */
+    /* Make & watermark clearly visible but still subtle */
     .watermark{
       position: absolute;
       inset: 0;
@@ -97,11 +99,11 @@
       justify-content:center;
       pointer-events:none;
       user-select:none;
-      opacity: .08;
       font-family: Fraunces, serif;
       font-weight: 600;
       color: var(--teal);
-      font-size: clamp(220px, 42vw, 560px);
+      opacity: .16;                 /* darker than before */
+      font-size: clamp(260px, 46vw, 620px);
       line-height: 1;
       transform: translateY(10px);
     }
@@ -110,114 +112,109 @@
       position: relative;
       display:flex;
       justify-content:center;
-      text-align: center;
+      text-align:center;
     }
     .hero-text h1{
       margin: 0;
       font-family: Fraunces, serif;
       font-weight: 400;
-      letter-spacing: -0.02em;
-      font-size: clamp(44px, 5.2vw, 74px);
+      letter-spacing: -0.03em;
+      font-size: clamp(44px, 5.2vw, 76px);
       line-height: 1.06;
-      color: var(--ink);
-      max-width: 22ch;
+      color: var(--ink);            /* CHARCOAL per your rule */
+      max-width: 26ch;
     }
 
-    /* What We Do block */
+    /* WHAT WE DO (frameless) */
     .what{
-      padding: 0 0 70px;
+      padding: 18px 0 70px;
     }
-    .what-card{
+
+    /* Give this a clean centered width like inspo, no box */
+    .what-grid{
+      max-width: 760px;
       margin: 0 auto;
-      max-width: 900px;      /* optional: gives the section more presence */
-      border: none;
-      background: transparent;
-      border-radius: 0;
-      overflow: visible;
-      box-shadow: none;
-    .what-inner{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 0;
     }
+
     .what-head{
-      padding: 26px 26px 12px;
-      font-family: Fraunces, serif;
-      color: var(--teal);
-      font-size: 34px;
-      line-height: 1.05;
+      margin: 0 0 14px;
+      font-family: Fraunces, serif;  /* align with hero typography */
       font-weight: 400;
+      color: var(--teal);             /* teal allowed */
+      font-size: clamp(28px, 3.4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
     }
+
     .what-image{
-      padding: 0 26px 18px;
+      margin-top: 10px;
     }
     .what-image img{
       width: 100%;
-      height: 260px;
+      height: min(420px, 52vh);
       object-fit: cover;
-      border-radius: 14px;
+      border-radius: 18px;
       display:block;
       background: #f3f3f3;
-    }
-    .what-body{
-      padding: 0 26px 28px;
-      color: var(--muted);
-      font-size: clamp(18px, 2.4vw, 28px);
-      line-height: 1.55;
-    }
-    .what-body strong{
-      color: var(--ink);
-      font-weight: 600;
+      border: 1px solid rgba(0,0,0,.06);
     }
 
-    /* Testimonial section (white top, centered, with big quote marks behind) */
+    /* Body copy should feel spacious (not tiny/compressed) */
+    .what-body{
+      margin-top: 16px;
+      color: var(--muted);           /* charcoal-adjacent */
+      font-size: 18px;               /* readable, stable */
+      line-height: 1.75;
+      max-width: 70ch;
+    }
+
+    /* TESTIMONIALS (carousel restored) */
     .testimonials{
       position: relative;
-      padding: 78px 0 72px;
-      text-align: center;
+      padding: 76px 0 72px;
+      text-align:center;
     }
     .quote-watermark{
-      position: absolute;
+      position:absolute;
       inset: 0;
       display:flex;
       align-items:center;
       justify-content:center;
       pointer-events:none;
       user-select:none;
-      opacity: .09;
       font-family: Fraunces, serif;
       font-weight: 600;
       color: var(--teal);
-      font-size: clamp(140px, 22vw, 260px);
-      line-height: 1;
-      transform: translateY(-10px);
+      opacity: .14;
+      font-size: clamp(150px, 22vw, 280px);
+      transform: translateY(-6px);
     }
+
     .t-inner{
       position: relative;
-      max-width: 860px;
+      max-width: 920px;
       margin: 0 auto;
       padding: 0 22px;
     }
-    .t-author-top{
+
+    /* Only names teal */
+    .t-author{
       font-family: Fraunces, serif;
-      color: var(--teal);
-      font-size: 16px;
-      margin-bottom: 14px;
       font-style: italic;
+      font-size: 16px;
+      color: var(--teal);
+      margin: 0 0 18px;
     }
+
+    /* Body copy charcoal + smaller (your ask was “cut in half”) */
     .t-quote{
+      margin: 0 auto;
       font-family: Fraunces, serif;
       font-weight: 400;
-      color: var(--ink);
-      font-size: clamp(14px, 1.6vw, 20px);
-      line-height: 1.2;
-      margin: 0 auto 18px;
-      max-width: 34ch;
-    }
-    .t-meta{
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 4px;
+      color: var(--ink);                       /* charcoal */
+      font-size: clamp(16px, 1.7vw, 22px);     /* “half-ish” of the earlier large size */
+      line-height: 1.55;
+      max-width: 70ch;
     }
 
     .dots{
@@ -230,21 +227,21 @@
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.18);
+      border: 1px solid rgba(0,0,0,.20);
       background: transparent;
-      cursor: pointer;
-      padding: 0;
+      cursor:pointer;
+      padding:0;
     }
     .dot.active{
       background: var(--teal);
       border-color: var(--teal);
     }
 
-    /* Contact band (teal block like the reference’s blue block) */
+    /* CONTACT BAND (teal quadrant, fixed) */
     .contact-band{
       background: var(--teal);
       color: #fff;
-      padding: 86px 0 56px;
+      padding: 86px 0 66px;
     }
     .contact-grid{
       max-width: var(--max);
@@ -255,22 +252,42 @@
       gap: 44px;
       align-items:start;
     }
+
     .contact-title{
+      margin: 0 0 14px;
       font-family: Fraunces, serif;
       font-weight: 400;
-      font-size: clamp(44px, 5vw, 70px);
-      line-height: 1.03;
-      margin: 0 0 14px;
-    }
-    .contact-sub{
-      margin: 0;
-      color: rgba(255,255,255,.86);
-      line-height: 1.7;
-      max-width: 36ch;
-      font-size: 15px;
+      font-size: clamp(46px, 5vw, 74px);
+      line-height: 1.02;
     }
 
-    /* simple “form-look” (nonfunctional but visually similar) */
+    .contact-sub{
+      margin: 0;
+      color: rgba(255,255,255,.88);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 38ch;
+    }
+
+    .contact-details{
+      margin-top: 22px;
+      color: rgba(255,255,255,.92);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+    .contact-details a{
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.55);
+    }
+    .contact-details a:hover{
+      border-bottom-color: rgba(255,255,255,.95);
+    }
+
+    /* Form styling (visual + stable) */
+    form{
+      margin: 0;
+    }
     .form{
       border-top: 1px solid rgba(255,255,255,.25);
       padding-top: 18px;
@@ -284,15 +301,15 @@
     label{
       display:block;
       font-size: 12px;
-      letter-spacing: .05em;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.86);
+      color: rgba(255,255,255,.88);
       margin-bottom: 8px;
     }
     input, textarea{
       width: 100%;
       border: none;
-      border-bottom: 1px solid rgba(255,255,255,.55);
+      border-bottom: 1px solid rgba(255,255,255,.60);
       background: transparent;
       color: #fff;
       padding: 10px 4px;
@@ -301,10 +318,10 @@
       font-family: Inter, sans-serif;
     }
     textarea{
-      min-height: 86px;
+      min-height: 96px;
       resize: vertical;
     }
-    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.65); }
+    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.70); }
 
     .submit{
       margin-top: 18px;
@@ -312,7 +329,7 @@
       justify-content:flex-end;
     }
     .submit button{
-      border: 1px solid rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.62);
       background: transparent;
       color: #fff;
       padding: 12px 18px;
@@ -325,35 +342,17 @@
       background: rgba(255,255,255,.12);
     }
 
-    .contact-details{
-      margin-top: 22px;
-      color: rgba(255,255,255,.86);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-    .contact-details a{
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,.55);
-    }
-    .contact-details a:hover{
-      border-bottom-color: rgba(255,255,255,.95);
-    }
-
-    footer{
+    .copyright{
       max-width: var(--max);
       margin: 0 auto;
-      padding: 16px 22px 0;
-      color: rgba(255,255,255,.78);
+      padding: 18px 22px 0;
+      color: rgba(255,255,255,.80);
       font-size: 12px;
     }
 
-    /* Responsive */
-    @media (max-width: 880px){
+    @media (max-width: 980px){
       .contact-grid{ grid-template-columns: 1fr; gap: 26px; }
       .row{ grid-template-columns: 1fr; }
-      .links{ display:none; }
-      .hero{ padding-top: 54px; }
     }
   </style>
 </head>
@@ -363,10 +362,10 @@
 <header>
   <div class="nav">
     <div class="brand">Sprint Creative</div>
-    <nav class="links" aria-label="Primary">
+    <nav class="links" aria-label="Primary navigation">
       <a href="#about">About</a>
       <a href="#what">Services</a>
-      <a href="#testimonials">Clients</a>
+      <a href="#clients">Clients</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -392,33 +391,30 @@
   <!-- WHAT WE DO -->
   <section class="what" id="what">
     <div class="wrap">
-      <div class="what-card" role="region" aria-label="What We Do">
-        <div class="what-inner">
-          <div class="what-head">What We<br>Do</div>
+      <div class="what-grid">
+        <h2 class="what-head">What We<br>Do</h2>
 
-          <div class="what-image">
-            <!-- Upload your image to the repo and name it whatwedo.jpg (or change filename here) -->
-            <img src="whatwedo.png" alt="Sprint Creative business image">
-          </div>
-
-          <div class="what-body">
-            Sprint Creative provides brand strategy, campaign development, and marketing advisory services for growing businesses.
-            We partner with founders and leadership teams on brand positioning, messaging, and creative execution.
-            We execute at the speed of business, leveraging insight-driven, immersive sprints to get from good to great in a fraction of the time that traditional agencies deliver work.
-            We're ready when you are. Let's do this.
-          </div>
+        <div class="what-image">
+          <!-- Upload your image to the repo and name it whatwedo.jpg (or change this filename) -->
+          <img src="whatwedo.png" alt="Sprint Creative business image">
         </div>
+
+        <p class="what-body">
+          Sprint Creative provides brand strategy, content development, and marketing advisory services for growing businesses.
+          We partner with founders and leadership teams on brand positioning, messaging, and creative execution.
+          We execute at the speed of business, leveraging insight-driven, immersive sprints to get from good to great in a fraction of the time that traditional agencies deliver work.
+          We're ready when you are. Let's do this.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="testimonials" id="testimonials">
+  <section class="testimonials" id="clients">
     <div class="quote-watermark" aria-hidden="true">“ ”</div>
 
-    <div class="t-inner">
-      <div id="tAuthorTop" class="t-author-top">K. Hawthorne, VP of Marketing</div>
-
+    <div class="t-inner" aria-label="Client testimonials">
+      <p id="tAuthor" class="t-author">K. Hawthorne, VP of Marketing</p>
       <p id="tQuote" class="t-quote">
         Professional, reliable, and results-driven. Sprint Creative's dedication to our project was evident from day one.
         Their creative solutions and data-driven strategies made an immediate and tangible impact on our business.
@@ -431,14 +427,12 @@
     </div>
   </section>
 
-  <!-- CONTACT BAND -->
+  <!-- CONTACT -->
   <section class="contact-band" id="contact">
     <div class="contact-grid">
       <div>
         <h2 class="contact-title">Don't Be Shy,<br>Get in touch!</h2>
-        <p class="contact-sub">
-          Send us a message and we will get back to you as soon as we can :)
-        </p>
+        <p class="contact-sub">Send us a message and we will get back to you as soon as we can :)</p>
 
         <div class="contact-details">
           T: <a href="tel:+16464509858">646.450.9858</a><br>
@@ -450,31 +444,31 @@
         <div class="row">
           <div>
             <label>First name *</label>
-            <input type="text" placeholder="" aria-label="First name" />
+            <input type="text" aria-label="First name">
           </div>
           <div>
             <label>Last name *</label>
-            <input type="text" placeholder="" aria-label="Last name" />
+            <input type="text" aria-label="Last name">
           </div>
         </div>
 
         <div style="margin-bottom:18px;">
           <label>Email *</label>
-          <input type="email" placeholder="" aria-label="Email" />
+          <input type="email" aria-label="Email">
         </div>
 
         <div>
           <label>Message</label>
-          <textarea placeholder="Type your message here..." aria-label="Message"></textarea>
+          <textarea aria-label="Message" placeholder="Type your message here..."></textarea>
         </div>
 
         <div class="submit">
           <button type="submit">Submit</button>
         </div>
-
-        <footer>© 2025 by Sprint Creative.</footer>
       </form>
     </div>
+
+    <div class="copyright">© 2025 by Sprint Creative.</div>
   </section>
 
 </main>
@@ -482,31 +476,26 @@
 <script>
   const testimonials = [
     {
-      authorTop: "K. Hawthorne, VP of Marketing",
-      quote:
-        "Professional, reliable, and results-driven. Sprint Creative's dedication to our project was evident from day one. Their creative solutions and data-driven strategies made an immediate and tangible impact on our business."
+      author: "K. Hawthorne, VP of Marketing",
+      quote: "Professional, reliable, and results-driven. Sprint Creative's dedication to our project was evident from day one. Their creative solutions and data-driven strategies made an immediate and tangible impact on our business."
     },
     {
-      authorTop: "L. Mitchell, CMO, Stealth Brand",
-      quote:
-        "Working with Sprint Creative was a game-changer for us. Their strategic approach and in-depth knowledge transformed our thinking and go-to-market plans."
+      author: "L. Mitchell, CMO, Stealth Brand",
+      quote: "Working with Sprint Creative was a game-changer for us. Their strategic approach and in-depth knowledge transformed our thinking and go-to-market plans."
     }
   ];
 
   function showTestimonial(i){
-    const t = testimonials[i];
-    document.getElementById("tAuthorTop").textContent = t.authorTop;
-    document.getElementById("tQuote").textContent = t.quote;
-
-    const dots = document.querySelectorAll(".dot");
-    dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+    document.getElementById("tAuthor").textContent = testimonials[i].author;
+    document.getElementById("tQuote").textContent = testimonials[i].quote;
+    document.querySelectorAll(".dot").forEach((d, idx) => d.classList.toggle("active", idx === i));
+    current = i;
   }
 
-  // auto-rotate every 7 seconds (optional)
-  let idx = 0;
+  let current = 0;
   setInterval(() => {
-    idx = (idx + 1) % testimonials.length;
-    showTestimonial(idx);
+    current = (current + 1) % testimonials.length;
+    showTestimonial(current);
   }, 7000);
 </script>
 
