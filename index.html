@@ -6,7 +6,6 @@
   <title>Sprint Creative</title>
   <meta name="description" content="Sprint Creative — Brand strategy, content development, and marketing advisory services." />
 
-  <!-- Fonts: elegant serif + clean sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -14,306 +13,223 @@
   <style>
     :root{
       --bg: #ffffff;
-      --ink: #222423;          /* dark charcoal */
+      --ink: #222423;
       --muted: #4f5653;
-      --teal: #1a9b8a;         /* teal accent */
-      --teal-deep: #0f6f63;
-      --line: rgba(0,0,0,.10);
+      --teal: #1a9b8a;
       --max: 1080px;
     }
 
-    *{ box-sizing: border-box; }
-    html{ scroll-behavior: smooth; }
+    *{ box-sizing:border-box; }
     body{
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:Inter, system-ui, sans-serif;
     }
 
-    /* Top nav */
     header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,.90);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,.06);
+      position:sticky;
+      top:0;
+      background:rgba(255,255,255,.95);
+      border-bottom:1px solid rgba(0,0,0,.06);
     }
+
     .nav{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 18px 22px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 22px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap: 12px;
+      align-items:center;
     }
+
     .brand{
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--teal);
-      letter-spacing: .02em;
-      white-space: nowrap;
+      font-size:13px;
+      font-weight:600;
+      color:var(--teal);
     }
+
     .links{
       display:flex;
-      gap: 22px;
-      align-items:center;
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      white-space: nowrap;
+      gap:22px;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
     }
+
     .links a{
-      color: var(--teal);
       text-decoration:none;
-      opacity: .85;
-    }
-    .links a:hover{ opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
-
-    @media (max-width: 860px){
-      .links{ display:none; }
+      color:var(--teal);
     }
 
-    /* Layout wrapper */
     .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 22px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 22px;
     }
 
     /* HERO */
     .hero{
-      position: relative;
-      padding: 72px 0 40px;
-      overflow: hidden;
+      position:relative;
+      padding:90px 0 60px;
+      text-align:center;
+      overflow:hidden;
     }
 
-    /* Make & watermark clearly visible but still subtle */
     .watermark{
-      position: absolute;
-      inset: 0;
+      position:absolute;
+      inset:0;
       display:flex;
       align-items:center;
       justify-content:center;
+      font-family:Fraunces, serif;
+      font-size:clamp(260px, 46vw, 600px);
+      color:var(--teal);
+      opacity:.20;
       pointer-events:none;
-      user-select:none;
-      font-family: Fraunces, serif;
-      font-weight: 600;
-      color: var(--teal);
-      opacity: .20;                 /* slightly stronger than before */
-      font-size: clamp(260px, 46vw, 620px);
-      line-height: 1;
-      transform: translateY(10px);
     }
 
-    .hero-text{
-      position: relative;
-      display:flex;
-      justify-content:center;
-      text-align:center;
-    }
-    .hero-text h1{
-      margin: 0;
-      font-family: Fraunces, serif;
-      font-weight: 400;
-      letter-spacing: -0.03em;
-      font-size: clamp(44px, 5.2vw, 76px);
-      line-height: 1.06;
-      color: var(--ink);            /* CHARCOAL per your rule */
-      max-width: 26ch;
+    .hero h1{
+      position:relative;
+      font-family:Fraunces, serif;
+      font-weight:400;
+      font-size:clamp(44px,5vw,76px);
+      line-height:1.06;
+      max-width:26ch;
+      margin:0 auto;
     }
 
-    /* WHAT WE DO (frameless) */
+    /* WHAT WE DO */
     .what{
-      padding: 18px 0 70px;
+      padding:40px 0 80px;
     }
 
-    /* Give this a clean centered width like inspo, no box */
     .what-grid{
-      max-width: 760px;
-      margin: 0 auto;
+      max-width:760px;
+      margin:0 auto;
     }
 
     .what-head{
-      margin: 0 0 14px;
-      font-family: Fraunces, serif;  /* align with hero typography */
-      font-weight: 400;
-      color: var(--teal);             /* teal allowed */
-      font-size: clamp(28px, 3.4vw, 44px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
+      font-family:Fraunces, serif;
+      font-size:clamp(28px,3vw,44px);
+      color:var(--teal);
+      margin-bottom:16px;
     }
 
-    .what-image{
-      margin-top: 10px;
-    }
     .what-image img{
-      width: 100%;
-      height: min(420px, 52vh);
-      object-fit: cover;
-      border-radius: 18px;
-      display:block;
-      background: #f3f3f3;
-      border: 1px solid rgba(0,0,0,.06);
+      width:100%;
+      height:min(420px,52vh);
+      object-fit:cover;
+      border-radius:18px;
+      border:1px solid rgba(0,0,0,.06);
     }
 
-    /* Body copy should feel spacious (not tiny/compressed) */
     .what-body{
-      margin-top: 16px;
-      color: var(--muted);           /* charcoal-adjacent */
-      font-size: 18px;               /* readable, stable */
-      line-height: 1.75;
-      max-width: 70ch;
+      margin-top:20px;
+      font-size:18px;
+      line-height:1.75;
+      color:var(--muted);
     }
 
-    /* TESTIMONIALS (carousel restored) */
+    /* TESTIMONIALS */
     .testimonials{
-      position: relative;
-      padding: 76px 0 72px;
+      position:relative;
+      padding:80px 0;
       text-align:center;
     }
+
     .quote-watermark{
       position:absolute;
-      inset: 0;
+      inset:0;
       display:flex;
       align-items:center;
       justify-content:center;
+      font-family:Fraunces, serif;
+      font-size:clamp(150px,20vw,280px);
+      color:var(--teal);
+      opacity:.14;
       pointer-events:none;
-      user-select:none;
-      font-family: Fraunces, serif;
-      font-weight: 600;
-      color: var(--teal);
-      opacity: .14;
-      font-size: clamp(150px, 22vw, 280px);
-      transform: translateY(-6px);
     }
 
-    .t-inner{
-      position: relative;
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 0 22px;
-    }
-
-    /* Only names teal */
     .t-author{
-      font-family: Fraunces, serif;
-      font-style: italic;
-      font-size: 16px;
-      color: var(--teal);
-      margin: 0 0 18px;
+      font-family:Fraunces, serif;
+      font-style:italic;
+      color:var(--teal);
+      margin-bottom:20px;
     }
 
-    /* Body copy charcoal + smaller (your ask was “cut in half”) */
     .t-quote{
-      margin: 0 auto;
-      font-family: Fraunces, serif;
-      font-weight: 400;
-      color: var(--ink);                       /* charcoal */
-      font-size: clamp(16px, 1.7vw, 22px);     /* “half-ish” of the earlier large size */
-      line-height: 1.55;
-      max-width: 70ch;
+      font-family:Fraunces, serif;
+      font-size:clamp(16px,1.7vw,22px);
+      max-width:70ch;
+      margin:0 auto;
+      line-height:1.6;
     }
 
     .dots{
       display:flex;
       justify-content:center;
-      gap: 10px;
-      margin-top: 22px;
-    }
-    .dot{
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.20);
-      background: transparent;
-      cursor:pointer;
-      padding:0;
-    }
-    .dot.active{
-      background: var(--teal);
-      border-color: var(--teal);
+      gap:10px;
+      margin-top:24px;
     }
 
-    /* CONTACT BAND (teal quadrant, fixed) */
-    .contact-band{
-      background: var(--teal);
-      color: #fff;
-      padding: 86px 0 66px;
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.25);
+      background:transparent;
+      cursor:pointer;
     }
+
+    .dot.active{
+      background:var(--teal);
+      border-color:var(--teal);
+    }
+
+    /* CONTACT */
+    .contact-band{
+      background:var(--teal);
+      color:#fff;
+      padding:80px 0 60px;
+    }
+
     .contact-grid{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 22px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 44px;
-      align-items:start;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 22px;
     }
 
     .contact-title{
-      margin: 0 0 14px;
-      font-family: Fraunces, serif;
-      font-weight: 400;
-      font-size: clamp(46px, 5vw, 74px);
-      line-height: 1.02;
+      font-family:Fraunces, serif;
+      font-size:clamp(46px,5vw,74px);
+      margin-bottom:16px;
     }
 
     .contact-sub{
-      margin: 0;
-      color: rgba(255,255,255,.88);
-      font-size: 15px;
-      line-height: 1.7;
-      max-width: 38ch;
+      margin-bottom:20px;
+      font-size:15px;
+      line-height:1.7;
+      opacity:.9;
     }
 
     .contact-details{
-      margin-top: 22px;
-      color: rgba(255,255,255,.92);
-      font-size: 14px;
-      line-height: 1.85;
-    }
-    .contact-details a{
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,.55);
-    }
-    .contact-details a:hover{
-      border-bottom-color: rgba(255,255,255,.95);
+      font-size:14px;
+      line-height:1.9;
     }
 
-    /* NEW: Contact CTA button (replaces form cleanly without breaking layout) */
-    .contact-cta{
-      border-top: 1px solid rgba(255,255,255,.25);
-      padding-top: 18px;
-    }
-    .email-button{
-      display:inline-block;
-      padding:14px 24px;
-      border:1px solid rgba(255,255,255,.65);
-      color:#ffffff;
+    .contact-details a{
+      color:#fff;
       text-decoration:none;
-      border-radius:999px;
-      font-weight:600;
-      letter-spacing:.02em;
-      transition: all .2s ease;
-    }
-    .email-button:hover{
-      background: rgba(255,255,255,.12);
+      border-bottom:1px solid rgba(255,255,255,.5);
     }
 
     .copyright{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 18px 22px 0;
-      color: rgba(255,255,255,.80);
-      font-size: 12px;
-    }
-
-    @media (max-width: 980px){
-      .contact-grid{ grid-template-columns: 1fr; gap: 26px; }
+      max-width:var(--max);
+      margin:0 auto;
+      padding:20px 22px 0;
+      font-size:12px;
+      opacity:.85;
     }
   </style>
 </head>
@@ -323,7 +239,7 @@
 <header>
   <div class="nav">
     <div class="brand">Sprint Creative</div>
-    <nav class="links" aria-label="Primary navigation">
+    <nav class="links">
       <a href="#about">About</a>
       <a href="#what">Services</a>
       <a href="#clients">Clients</a>
@@ -334,113 +250,76 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero" id="about">
-    <div class="watermark" aria-hidden="true">&amp;</div>
-    <div class="wrap hero-text">
-      <h1>
-        We create brand strategy<br>
-        and visual messaging.<br>
-        We are passionate about<br>
-        our work and we don't<br>
-        rest until we deliver<br>
-        something extraordinary.
-      </h1>
-    </div>
-  </section>
+<section class="hero" id="about">
+  <div class="watermark">&amp;</div>
+  <h1>
+    We create brand strategy<br>
+    and visual messaging.<br>
+    We are passionate about<br>
+    our work and we don't<br>
+    rest until we deliver<br>
+    something extraordinary.
+  </h1>
+</section>
 
-  <!-- WHAT WE DO -->
-  <section class="what" id="what">
-    <div class="wrap">
-      <div class="what-grid">
-        <h2 class="what-head">What We<br>Do</h2>
+<section class="what" id="what">
+  <div class="wrap">
+    <div class="what-grid">
+      <h2 class="what-head">What We<br>Do</h2>
 
-        <div class="what-image">
-          <img src="whatwedo.png" alt="Sprint Creative business image">
-        </div>
-
-        <p class="what-body">
-          Sprint Creative provides brand strategy, content development, and marketing advisory services for growing businesses.
-          We partner with founders and leadership teams on brand positioning, messaging, and creative execution.
-          We execute at the speed of business, leveraging insight-driven, immersive sprints to get from good to great in a fraction of the time that traditional agencies deliver work.
-          We're ready when you are. Let's do this.
-        </p>
+      <div class="what-image">
+        <img src="whatwedo.png" alt="Sprint Creative business image">
       </div>
-    </div>
-  </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="clients">
-    <div class="quote-watermark" aria-hidden="true">“ ”</div>
-
-    <div class="t-inner" aria-label="Client testimonials">
-      <p id="tAuthor" class="t-author">K. Hawthorne, VP of Marketing</p>
-      <p id="tQuote" class="t-quote">
-        Professional, reliable, and results-driven. Sprint Creative's dedication to our project was evident from day one.
-        Their creative solutions and data-driven strategies made an immediate and tangible impact on our business.
+      <p class="what-body">
+        Sprint Creative provides brand strategy, content development, and marketing advisory services for growing businesses.
+        We partner with founders and leadership teams on brand positioning, messaging, and creative execution.
+        We execute at the speed of business, leveraging insight-driven, immersive sprints to get from good to great in a fraction of the time that traditional agencies deliver work.
+        We're ready when you are. Let's do this.
       </p>
-
-      <div class="dots" aria-label="Testimonial navigation">
-        <button class="dot active" type="button" aria-label="Testimonial 1" onclick="showTestimonial(0)"></button>
-        <button class="dot" type="button" aria-label="Testimonial 2" onclick="showTestimonial(1)"></button>
-      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section class="contact-band" id="contact">
-    <div class="contact-grid">
-      <div>
-        <h2 class="contact-title">Don't Be Shy,<br>Get in touch!</h2>
-        <p class="contact-sub">Send us a message and we will get back to you as soon as we can :)</p>
+<section class="testimonials" id="clients">
+  <div class="quote-watermark">“ ”</div>
 
-        <div class="contact-details">
-          T: <a href="tel:+16464509858">646.450.9858</a><br>
-          E: <a href="mailto:hello@sprintcreative.co">hello@sprintcreative.co</a>
-        </div>
-      </div>
+  <div class="wrap">
+    <p id="tAuthor" class="t-author">K. Hawthorne, VP of Marketing</p>
+    <p id="tQuote" class="t-quote">
+      Professional, reliable, and results-driven. Sprint Creative's dedication to our project was evident from day one.
+      Their creative solutions and data-driven strategies made an immediate and tangible impact on our business.
+    </p>
 
-      <!-- Email button column -->
-      <div class="contact-cta">
-        <a
-          class="email-button"
-          href="mailto:hello@sprintcreative.co?subject=Sprint%20Creative%20Inquiry&body=Hi%20Sprint%20Creative,%0D%0A%0D%0AI%27d%20love%20to%20connect%20about..."
-        >
-          Email Us
-        </a>
-      </div>
+    <div class="dots">
+      <button class="dot active" onclick="showTestimonial(0)"></button>
+      <button class="dot" onclick="showTestimonial(1)"></button>
     </div>
+  </div>
+</section>
 
-    <div class="copyright">© 2025 by Sprint Creative.</div>
-  </section>
+<section class="contact-band" id="contact">
+  <div class="contact-grid">
+    <h2 class="contact-title">Don't Be Shy,<br>Get in touch!</h2>
+    <p class="contact-sub">Reach out directly and we’ll respond promptly.</p>
+
+    <div class="contact-details">
+      T: <a href="tel:+16464509858">646.450.9858</a><br>
+      E: <a href="mailto:hello@sprintcreative.co">hello@sprintcreative.co</a>
+    </div>
+  </div>
+
+  <div class="copyright">© 2025 by Sprint Creative.</div>
+</section>
 
 </main>
 
 <script>
-  const testimonials = [
-    {
-      author: "K. Hawthorne, VP of Marketing",
-      quote: "Professional, reliable, and results-driven. Sprint Creative's dedication to our project was evident from day one. Their creative solutions and data-driven strategies made an immediate and tangible impact on our business."
-    },
-    {
-      author: "L. Mitchell, CMO, Stealth Brand",
-      quote: "Working with Sprint Creative was a game-changer for us. Their strategic approach and in-depth knowledge transformed our thinking and go-to-market plans."
-    }
-  ];
-
-  function showTestimonial(i){
-    document.getElementById("tAuthor").textContent = testimonials[i].author;
-    document.getElementById("tQuote").textContent = testimonials[i].quote;
-    document.querySelectorAll(".dot").forEach((d, idx) => d.classList.toggle("active", idx === i));
-    current = i;
-  }
-
-  let current = 0;
-  setInterval(() => {
-    current = (current + 1) % testimonials.length;
-    showTestimonial(current);
-  }, 7000);
-</script>
-
-</body>
-</html>
+const testimonials = [
+{
+  author: "K. Hawthorne, VP of Marketing",
+  quote: "Professional, reliable, and results-driven. Sprint Creative's dedication to our project was evident from day one. Their creative solutions and data-driven strategies made an immediate and tangible impact on our business."
+},
+{
+  author: "L. Mitchell, CMO, Stealth Brand",
+  quote: "Working with Sprint Creative was a game-changer for us. Their strategic approach and in-depth knowledge transformed our thinking and go
